@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <div class="main min-h-screen bg-black min-w-96">
+
+        <h1 class="text-slate-200 rounded-b-lg font-semibold text-4xl p-5 ml-9 bg-zinc-800 w-fit">TASK MANAGER</h1>
+
+        <div class="form">
+            <form action="/create" method="post" class="p-10">
+
+                <input class="block px-5 py-2 bg-white rounded-md font-semibold text-xl text-black w-full outline-none" 
+                type="text" placeholder="Task Title..." name="title" maxlength="16" id="">
+
+                <textarea class="block px-5 py-2 bg-white mt-5 resize-none font-bold text-black w-full outline-none" 
+                name="description" id="" placeholder="Task description..."></textarea>
+
+                <input type="submit" class="bg-blue-600 text-white p-2 font-medium mt-5 rounded-md " value="create-task">
+
+            </form>
+        </div>
+
+        <div class="tasks p-10 flex gap-5 flex-wrap ">
+
+            <% if(files.length > 0){ %>
+                <% files.forEach(function(val){ %>
+                    <div class="task w-72 px-3 py-4 bg-zinc-900 rounded-md">
+                        <h1 class="font-bold text-2xl pl-3 bg-zinc-800 rounded-md text-white p-1 "><%= val %></h1>
+
+                        <div class="flex items-center justify-between">
+
+                            <form action="/delete" method="post" class="inline">
+                                <input type="hidden" name="filename" value="<%= val %>">
+                                <button type="submit" class="text-red-400 mt-3">Delete</button>
+                            </form>
+                            
+                        <a href="/files/<%=val%>" class="text-blue-600 inline-block mt-3">Read more...</a>
+
+                       </div>
+                    </div>
+                    <% }) %>
+            <% } else{ %>
+                <h2 class="text-3xl font-semibold text-white">No task yet..</h2>
+            <% } %>
+            
+        </div>
+    </div>
+    <footer class="bg-zinc-800 p-3 text-bold font-xl text-white flex items-center justify-center font-semibold">
+        @Codewithshac 
+    </footer>
+</body>
+</html>

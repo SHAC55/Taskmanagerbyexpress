@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Description</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/stylesheets/view.css">
+</head>
+<body>
+    
+    <div class="main min-h-screen bg-black text-white p-10 ">
+
+        <div class="bg-zinc-900 p-5 rounded-xl w-fit">
+        <h1 class="text-4xl font-semibold"><span class="text-xl text-zinc-400">TITLE : </span><%= filename  %></h1>
+        <p class="text-2xl mt-3 mb-3"><span class="text-xl text-zinc-400">DESCRIPTION : </span><%=filedata  %></p>
+        <a href="/" class="text-blue-600">Home page</a>
+        </div>
+    </div>
+
+    <footer class="bg-zinc-800 p-3 text-bold font-xl text-white flex items-center justify-center font-semibold">
+        @Codewithshac 
+    </footer>
+
+    
+</body>
+</html>
